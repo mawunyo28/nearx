@@ -1,3 +1,5 @@
+import React from "react";
+
 export interface Place {
   id: string;
   name: string;
@@ -7,6 +9,7 @@ export interface Place {
 }
 
 export interface MapViewProps {
+  children: React.ReactNode;
   center: { lat: number; lon: number };
   places: Place[];
 }
