@@ -10,8 +10,13 @@ export interface Place {
 
 export interface MapViewProps {
   children: React.ReactNode;
-  center: { lat: number; lon: number };
+  center: Center;
   places: Place[];
+}
+
+export interface Center {
+  lat: number;
+  lon: number;
 }
 
 export interface SearchProps {

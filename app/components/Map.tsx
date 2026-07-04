@@ -9,7 +9,7 @@ export default function MapView({ children, center, places }: MapViewProps) {
   const [viewState, setViewState] = useState({
     longitude: center.lon,
     latitude: center.lat,
-    zoom: 14,
+    zoom: 11,
   });
 
   return (
@@ -18,15 +18,17 @@ export default function MapView({ children, center, places }: MapViewProps) {
         initialViewState={{ ...viewState }}
         style={{ width: "100%", height: "100vh" }}
         onMove={(e) => setViewState(e.viewState)}
-        mapStyle="https://api.maptiler.com/maps/base-v4/style.json?key=lCZejhXvO8RW4PYq7YkJ"
+        mapStyle="https://tiles.openfreemap.org/styles/liberty"
+        zoom={viewState.zoom}
+        bearing={0}
       >
-        <Marker latitude={center.lat} longitude={center.lat} color="red" />
+        <Marker latitude={center.lat} longitude={center.lon} color="red" />
         {places.map((place) => (
           <Marker key={place.id} latitude={place.lat} longitude={place.lon} />
         ))}
       </Map>
 
-      <div className="absolute top-2 left-2">{children}</div>
+      <div className="absolute top-4 left-4">{children}</div>
     </div>
   );
 }
