@@ -20,6 +20,6 @@ export interface Center {
 }
 
 export interface SearchProps {
-  center: { lat: number; lon: number };
+  center: Center;
   onResults: (places: Place[]) => void;
 }

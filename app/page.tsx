@@ -24,7 +24,7 @@ export default function Home() {
 
   return (
     <MapView center={center} places={places}>
-      <Search />
+      <Search center={center} onResults={setPlaces} />
     </MapView>
   );
 }

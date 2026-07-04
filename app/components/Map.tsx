@@ -12,6 +12,8 @@ export default function MapView({ children, center, places }: MapViewProps) {
     zoom: 11,
   });
 
+  // console.log(viewState);
+
   return (
     <div>
       <Map
@@ -22,10 +24,18 @@ export default function MapView({ children, center, places }: MapViewProps) {
         zoom={viewState.zoom}
         bearing={0}
       >
-        <Marker latitude={center.lat} longitude={center.lon} color="red" />
-        {places.map((place) => (
-          <Marker key={place.id} latitude={place.lat} longitude={place.lon} />
-        ))}
+        {/* <Marker latitude={center.lat} longitude={center.lon} color="red" /> */}
+        {places.map((place) => {
+          {
+            /* console.log(place); */
+          }
+          <Marker
+            key={place.id}
+            latitude={place.lat}
+            longitude={place.lon}
+            color="red"
+          />;
+        })}
       </Map>
 
       <div className="absolute top-4 left-4">{children}</div>
